@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { questionList } from "../data/questions";
 
 const QuizContext = createContext();
 
@@ -64,10 +65,13 @@ function QuizProvider({ children }) {
   ] = useReducer(reducer, initialState);
 
   useEffect(function () {
-    fetch("http://localhost:8000/questions")
-      .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataRecieved", payload: data }))
-      .catch((err) => dispatch({ type: "dataFailed" }));
+    // fetch("http://localhost:8000/questions")
+    //   .then((res) => res.json())
+    //   .then((data) => dispatch({ type: "dataRecieved", payload: data }))
+    //   .catch((err) => dispatch({ type: "dataFailed" }));
+    const { questions } = questionList;
+    dispatch({ type: "dataRecieved", payload: questions });
+    console.log(questions);
   }, []);
 
   return (

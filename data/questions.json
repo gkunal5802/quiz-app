@@ -64,7 +64,7 @@
       "points": 20
     },
     {
-      "question": "When do we directly \"touch\" the DOM in React?",
+      "question": "When do we directly 'touch' the DOM in React?",
       "options": [
         "When we need to listen to an event",
         "When we need to change the UI",
